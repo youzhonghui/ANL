@@ -1,0 +1,42 @@
+{
+    "base": {
+        "task_name": "MN_CIFAR10",
+        "cuda": true,
+        "seed": 0,
+        "epoch": 0,
+        "multi_gpus": false
+    },
+    "model": {
+        "name": "mobileNetV2"
+    },
+    "train": {
+        "max_epoch": 160,
+        "optim": "sgd",
+        "steplr": [
+            [
+                80,
+                0.1
+            ],
+            [
+                120,
+                0.01
+            ],
+            [
+                160,
+                0.001
+            ]
+        ],
+        "weight_decay": 5e-4,
+        "momentum": 0.9,
+        "nesterov": false
+    },
+    "data": {
+        "shuffle": true,
+        "batch_size": 128,
+        "test_batch_size": 512,
+        "num_workers": 4
+    },
+    "anl": {
+        "eps": 2e-2
+    }
+}
